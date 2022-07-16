@@ -5,8 +5,6 @@ export function MyStack({ stack }: StackContext) {
   const api = new Api(stack, "Api", {
     routes: {
       "GET /notes": "functions/list.handler",
-      "GET /notes/{id}": "functions/get.handler",
-      "PUT /notes/{id}": "functions/update.handler",
     },
   });
 

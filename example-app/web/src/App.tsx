@@ -1,12 +1,13 @@
 import React from "react";
 import { useQuery, QueryClient, QueryClientProvider } from "react-query";
+import { Note } from "../../types/note";
 import { getNotes } from "./api";
 import "./App.css";
 
 const queryClient = new QueryClient();
 
 function Notes() {
-  const { data, isFetching } = useQuery("notes", getNotes);
+  const { data, isFetching } = useQuery<Note[]>("notes", getNotes);
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -20,8 +21,8 @@ function Notes() {
       ) : (
         <div>
           <ul>
-            {Object.keys(data).map((key, index) => (
-              <li key={index}>{data[key].content}</li>
+            {data?.map((d, index) => (
+              <li key={index}>{d.content}</li>
             ))}
           </ul>
         </div>
