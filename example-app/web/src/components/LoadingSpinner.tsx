@@ -4,9 +4,9 @@ import "./LoadingSpinner.css"
 function LoadingSpinner() {
 
     return (
-      <div class="loding-container">
+      <div className="loding-container">
         <h1>Loading...</h1>
-        <div class="spin"></div>
+        <div className="spin"></div>
       </div>
     )
 };
