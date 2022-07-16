@@ -1,15 +1,14 @@
 name: Deployment
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
 jobs:
   deployment:
     runs-on: ubuntu-latest
-    environment: production
-    concurrency: production
+    environment: non-production
     steps:
       - name: deploy
       - run: npm run deploy
