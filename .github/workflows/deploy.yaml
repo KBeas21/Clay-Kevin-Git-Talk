@@ -11,8 +11,22 @@ on:
 jobs:
   deployment:
     runs-on: ubuntu-latest
+      defaults:
+        working_directory: example-app
     environment: non-production
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with: 
+          node_version: 14
+          cache: 'npm'
+          cache-dependency-path: "**/package-lock.json"
+      - name: Install Dependencies
+        run: | 
+          npm install
+          cd web
+          npm install
+          cd ..
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
