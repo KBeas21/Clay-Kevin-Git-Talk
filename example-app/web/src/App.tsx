@@ -13,17 +13,17 @@ function Notes() {
       <div style={{ textAlign: "center" }}>
         <h1>Notes</h1>
       </div>
-      {!isFetching ? (
+      {isFetching ? (
+        <div style={{ textAlign: "center" }}>
+          <p>Loading...</p>
+        </div>
+      ) : (
         <div>
           <ul>
             {Object.keys(data).map((key, index) => (
               <li key={index}>{data[key].content}</li>
             ))}
           </ul>
-        </div>
-      ) : (
-        <div style={{ textAlign: "center" }}>
-          <p>Loading...</p>
         </div>
       )}
     </div>
