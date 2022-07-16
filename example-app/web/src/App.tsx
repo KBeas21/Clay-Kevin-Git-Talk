@@ -12,19 +12,21 @@ function Notes() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <div style={{ textAlign: "center" }}>
-        <h1>Notes</h1>
-      </div>
       {isFetching ? (
         <LoadingSpinner />
       ) : (
-        <div>
-          <ul>
-            {data?.map((d, index) => (
-              <li key={index}>{d.content}</li>
-            ))}
-          </ul>
-        </div>
+        <>
+          <div style={{ textAlign: "center" }}>
+            <h1>Notes</h1>
+          </div>
+          <div>
+            <ul>
+              {data?.map((d, index) => (
+                <li key={index}>{d.content}</li>
+              ))}
+            </ul>
+          </div>
+        </>
       )}
     </div>
   );
