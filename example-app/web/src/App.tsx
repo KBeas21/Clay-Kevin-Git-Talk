@@ -3,6 +3,7 @@ import { useQuery, QueryClient, QueryClientProvider } from "react-query";
 import { Note } from "../../types/note";
 import { getNotes } from "./api";
 import "./App.css";
+import LoadingSpinner from "./components/LoadingSpinner";
 
 const queryClient = new QueryClient();
 
@@ -15,9 +16,7 @@ function Notes() {
         <h1>Notes</h1>
       </div>
       {isFetching ? (
-        <div style={{ textAlign: "center" }}>
-          <p>Loading...</p>
-        </div>
+        <LoadingSpinner />
       ) : (
         <div>
           <ul>
