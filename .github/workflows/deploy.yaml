@@ -11,6 +11,9 @@ on:
 jobs:
   deployment:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: example-app
     environment: non-production
     steps:
       - uses: actions/checkout@v3
@@ -34,4 +37,3 @@ jobs:
           aws-region: us-east-1
       - name: deploy
         run: npm run deploy --stage pr
-          working-directory: example-app
