@@ -12,7 +12,7 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     defaults:
-      working_directory: example-app
+      working-directory: example-app
     environment: non-production
     steps:
       - uses: actions/checkout@v3
